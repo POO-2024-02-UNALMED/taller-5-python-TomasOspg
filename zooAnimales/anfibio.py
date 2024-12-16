@@ -27,3 +27,10 @@ class Anfibio(Animal):
     @staticmethod
     def cantidadAnfibios():
         return len(Anfibio.listado)
+    
+    def getColorPiel(self):
+        return self.color_piel
+    
+    def setColorPiel(self, color):
+        self.color_piel = color
+

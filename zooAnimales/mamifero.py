@@ -24,3 +24,9 @@ class Mamifero(Animal):
     @staticmethod
     def cantidadMamiferos():
         return len(Mamifero.listado)
+    
+    def isPelaje(self):
+        return self.pelaje
+    
+    def setPelaje(self, tiene_pelaje):
+        self.pelaje = tiene_pelaje

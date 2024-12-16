@@ -27,3 +27,10 @@ class Reptil(Animal):
     @staticmethod
     def cantidadReptiles():
         return len(Reptil.listado)
+    
+    def getColorEscamas(self):
+        return self.color_escamas
+    
+    # Método SET
+    def setColorEscamas(self, color):
+        self.color_escamas = color

@@ -26,3 +26,10 @@ class Ave(Animal):
     @staticmethod
     def cantidadAves():
         return len(Ave.listado)
+    
+    def getColorPlumas(self):
+        return self.color_plumas
+    
+    # Método SET
+    def setColorPlumas(self, color):
+        self.color_plumas = color

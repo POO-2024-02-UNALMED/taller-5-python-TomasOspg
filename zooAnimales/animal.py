@@ -1,3 +1,9 @@
+from zooAnimales.mamifero import Mamifero
+from zooAnimales.ave import Ave
+from zooAnimales.pez import Pez
+from zooAnimales.reptil import Reptil
+from zooAnimales.anfibio import Anfibio
+
 class Animal:
     totalAnimales = 0
 

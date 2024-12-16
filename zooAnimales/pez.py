@@ -27,3 +27,9 @@ class Pez(Animal):
     @staticmethod
     def cantidadPeces():
         return len(Pez.listado)
+    
+    def getColorEscamas(self):
+        return self.color_escamas
+    
+    def setColorEscamas(self, color):
+        self.color_escamas = color
