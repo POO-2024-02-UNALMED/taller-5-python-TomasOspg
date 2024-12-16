@@ -18,7 +18,7 @@ class Animal:
         from zooAnimales.pez import Pez
         from zooAnimales.ave import Ave
         from zooAnimales.reptil import Reptil
-        return (f"Mamíferos: {len(Mamifero.listado)}\n"
+        return (f"Mamiferos: {len(Mamifero.listado)}\n"
                 f"Aves: {len(Ave.listado)}\n"
                 f"Reptiles: {len(Reptil.listado)}\n"
                 f"Peces: {len(Pez.listado)}\n"
