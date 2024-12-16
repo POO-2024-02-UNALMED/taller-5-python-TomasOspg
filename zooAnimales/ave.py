@@ -1,17 +1,19 @@
-from zooAnimales.animal import Animal
-
 class Ave(Animal):
     listado = []
     halcones = 0
     aguilas = 0
 
-    def __init__(self, nombre="", edad=0, habitat="", genero="", colorPlumas=""):
+    def __init__(self, nombre, edad, habitat, genero, colorPlumas):
         super().__init__(nombre, edad, habitat, genero)
         self.__colorPlumas = colorPlumas
         Ave.listado.append(self)
 
     def movimiento(self):
         return "volar"
+
+    @staticmethod
+    def cantidadAves():
+        return len(Ave.listado)
 
     @staticmethod
     def crearHalcon(nombre, edad, genero):
@@ -23,13 +25,8 @@ class Ave(Animal):
         Ave.aguilas += 1
         return Ave(nombre, edad, "montañas", genero, "blanco y amarillo")
 
-    @staticmethod
-    def cantidadAves():
-        return len(Ave.listado)
-    
     def getColorPlumas(self):
-        return self.color_plumas
-    
-    # Método SET
-    def setColorPlumas(self, color):
-        self.color_plumas = color
+        return self.__colorPlumas
+
+    def setColorPlumas(self, colorPlumas):
+        self.__colorPlumas = colorPlumas

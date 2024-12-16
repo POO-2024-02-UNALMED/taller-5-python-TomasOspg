@@ -1,41 +1,30 @@
-from zooAnimales.mamifero import Mamifero
-from zooAnimales.ave import Ave
-from zooAnimales.pez import Pez
-from zooAnimales.reptil import Reptil
-from zooAnimales.anfibio import Anfibio
-
 class Animal:
     totalAnimales = 0
 
-    def __init__(self, nombre="", edad=0, habitat="", genero=""):
+    def __init__(self, nombre, edad, habitat, genero, zona=None):
         self.__nombre = nombre
         self.__edad = edad
         self.__habitat = habitat
         self.__genero = genero
-        self.__zona = None
+        self.__zona = zona
         Animal.totalAnimales += 1
 
     def movimiento(self):
         return "desplazarse"
 
-    def __str__(self):
-        if self.__zona:
-            return (f"Mi nombre es {self.__nombre}, tengo una edad de {self.__edad}, habito en {self.__habitat} "
-                    f"y mi género es {self.__genero}, la zona en la que me ubico es {self.__zona.getNombre()}, "
-                    f"en el {self.__zona.getZoo().getNombre()}.")
-        else:
-            return (f"Mi nombre es {self.__nombre}, tengo una edad de {self.__edad}, habito en {self.__habitat} "
-                    f"y mi género es {self.__genero}.")
-
-    @staticmethod
     def totalPorTipo():
-        return (f"Mamíferos: {Mamifero.cantidadMamiferos()}\n"
-                f"Aves: {Ave.cantidadAves()}\n"
-                f"Reptiles: {Reptil.cantidadReptiles()}\n"
-                f"Peces: {Pez.cantidadPeces()}\n"
-                f"Anfibios: {Anfibio.cantidadAnfibios()}")
+        return (f"Mamíferos: {len(Mamifero.listado)}\n"
+                f"Aves: {len(Ave.listado)}\n"
+                f"Reptiles: {len(Reptil.listado)}\n"
+                f"Peces: {len(Pez.listado)}\n"
+                f"Anfibios: {len(Anfibio.listado)}")
 
-    # Getters y Setters
+    def toString(self):
+        base = f"Mi nombre es {self.__nombre}, tengo una edad de {self.__edad}, habito en {self.__habitat} y mi género es {self.__genero}"
+        if self.__zona:
+            return (f"{base}, la zona en la que me ubico es {self.__zona.getNombre()}, en el {self.__zona.getZoo().getNombre()}.")
+        return base
+
     def getNombre(self):
         return self.__nombre
 

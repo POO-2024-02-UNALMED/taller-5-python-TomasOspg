@@ -1,11 +1,9 @@
-from zooAnimales.animal import Animal
-
 class Pez(Animal):
     listado = []
     salmones = 0
     bacalaos = 0
 
-    def __init__(self, nombre="", edad=0, habitat="", genero="", colorEscamas="", cantidadAletas=0):
+    def __init__(self, nombre, edad, habitat, genero, colorEscamas, cantidadAletas):
         super().__init__(nombre, edad, habitat, genero)
         self.__colorEscamas = colorEscamas
         self.__cantidadAletas = cantidadAletas
@@ -13,6 +11,10 @@ class Pez(Animal):
 
     def movimiento(self):
         return "nadar"
+
+    @staticmethod
+    def cantidadPeces():
+        return len(Pez.listado)
 
     @staticmethod
     def crearSalmon(nombre, edad, genero):
@@ -24,12 +26,14 @@ class Pez(Animal):
         Pez.bacalaos += 1
         return Pez(nombre, edad, "océano", genero, "gris", 6)
 
-    @staticmethod
-    def cantidadPeces():
-        return len(Pez.listado)
-    
     def getColorEscamas(self):
-        return self.color_escamas
-    
-    def setColorEscamas(self, color):
-        self.color_escamas = color
+        return self.__colorEscamas
+
+    def setColorEscamas(self, colorEscamas):
+        self.__colorEscamas = colorEscamas
+
+    def getCantidadAletas(self):
+        return self.__cantidadAletas
+
+    def setCantidadAletas(self, cantidadAletas):
+        self.__cantidadAletas = cantidadAletas
