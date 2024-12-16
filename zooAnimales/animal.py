@@ -1,36 +1,67 @@
-from Mamifero import Mamifero
-from Ave import Ave
-from Pez import Pez
-from Anfibio import Anfibio
-from Reptil import Reptil
+from zooAnimales.mamifero import Mamifero
+from zooAnimales.ave import Ave
+from zooAnimales.anfibio import Anfibio
+from zooAnimales.pez import Pez
+from zooAnimales.reptil import Reptil
 
 class Animal:
-    total_animales = 0
+    totalAnimales = 0
 
-    def __init__(self, nombre=None, edad=None, habitat=None, genero=None, zona=None):
-        self.nombre = nombre
-        self.edad = edad
-        self.habitat = habitat
-        self.genero = genero
-        self.zona = zona
-        Animal.total_animales += 1
+    def __init__(self, nombre="", edad=0, habitat="", genero=""):
+        self.__nombre = nombre
+        self.__edad = edad
+        self.__habitat = habitat
+        self.__genero = genero
+        self.__zona = None
+        Animal.totalAnimales += 1
 
     def movimiento(self):
         return "desplazarse"
 
-    @staticmethod
-    def total_por_tipo():
-        mamiferos = len(Mamifero.listado)
-        aves = len(Ave.listado)
-        reptiles = len(Reptil.listado)
-        peces = len(Pez.listado)
-        anfibios = len(Anfibio.listado)
-        return f"Mamíferos: {mamiferos}\nAves: {aves}\nReptiles: {reptiles}\nPeces: {peces}\nAnfibios: {anfibios}"
-
     def __str__(self):
-        if self.zona:
-            return (f"Mi nombre es {self.nombre}, tengo una edad de {self.edad}, habito en {self.habitat} "
-                    f"y mi género es {self.genero}, la zona en la que me ubico es {self.zona.nombre}, en el {self.zona.zoo.nombre}.")
+        if self.__zona:
+            return (f"Mi nombre es {self.__nombre}, tengo una edad de {self.__edad}, habito en {self.__habitat} "
+                    f"y mi género es {self.__genero}, la zona en la que me ubico es {self.__zona.getNombre()}, "
+                    f"en el {self.__zona.getZoo().getNombre()}.")
         else:
-            return (f"Mi nombre es {self.nombre}, tengo una edad de {self.edad}, habito en {self.habitat} "
-                    f"y mi género es {self.genero}.")
+            return (f"Mi nombre es {self.__nombre}, tengo una edad de {self.__edad}, habito en {self.__habitat} "
+                    f"y mi género es {self.__genero}.")
+
+    @staticmethod
+    def totalPorTipo():
+        return (f"Mamíferos: {Mamifero.cantidadMamiferos()}\n"
+                f"Aves: {Ave.cantidadAves()}\n"
+                f"Reptiles: {Reptil.cantidadReptiles()}\n"
+                f"Peces: {Pez.cantidadPeces()}\n"
+                f"Anfibios: {Anfibio.cantidadAnfibios()}")
+
+    # Getters y Setters
+    def getNombre(self):
+        return self.__nombre
+
+    def setNombre(self, nombre):
+        self.__nombre = nombre
+
+    def getEdad(self):
+        return self.__edad
+
+    def setEdad(self, edad):
+        self.__edad = edad
+
+    def getHabitat(self):
+        return self.__habitat
+
+    def setHabitat(self, habitat):
+        self.__habitat = habitat
+
+    def getGenero(self):
+        return self.__genero
+
+    def setGenero(self, genero):
+        self.__genero = genero
+
+    def getZona(self):
+        return self.__zona
+
+    def setZona(self, zona):
+        self.__zona = zona
