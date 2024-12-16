@@ -18,11 +18,11 @@ class Animal:
         from zooAnimales.pez import Pez
         from zooAnimales.ave import Ave
         from zooAnimales.reptil import Reptil
-        return (f"Mamiferos: {len(Mamifero.listado)}\n"
-                f"Aves: {len(Ave.listado)}\n"
-                f"Reptiles: {len(Reptil.listado)}\n"
-                f"Peces: {len(Pez.listado)}\n"
-                f"Anfibios: {len(Anfibio.listado)}")
+        return (f"Mamiferos : {len(Mamifero.listado)}\n"
+                f"Aves : {len(Ave.listado)}\n"
+                f"Reptiles : {len(Reptil.listado)}\n"
+                f"Peces : {len(Pez.listado)}\n"
+                f"Anfibios : {len(Anfibio.listado)}")
 
     def toString(self):
         base = f"Mi nombre es {self.__nombre}, tengo una edad de {self.__edad}, habito en {self.__habitat} y mi genero es {self.__genero}"
